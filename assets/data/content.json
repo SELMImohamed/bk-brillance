@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "title": "Votre propreté, notre engagement",
+    "subtitle": "Nettoyage de qualité pour chantiers, cuisines et Airbnb",
+    "cta": "Demander un devis"
+  },
+  "contact": {
+    "email": "contact@bkbrillance.fr",
+    "phone": "01 23 45 67 89",
+    "whatsapp": "https://wa.me/330123456789"
+  },
+  "testimonials": [
+    {
+      "name": "Pierre Martin",
+      "comment": "Service impeccable pour notre fin de chantier. L'équipe a fait un travail remarquable, je recommande vivement !"
+    },
+    {
+      "name": "Sophie Dubois",
+      "comment": "Excellent service pour mon Airbnb. Rapide, efficace et professionnel. Mes locataires sont toujours ravis !"
+    }
+  ]
+}
