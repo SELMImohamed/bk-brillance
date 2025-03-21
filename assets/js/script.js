@@ -1,14 +1,18 @@
+// Fonction pour modifier le texte sans erreur si l'élément est absent
+const setTextContent = (id, text) => {
+  const element = document.getElementById(id);
+  if (element) {
+    element.textContent = text;
+  } else {
+    console.warn(`⚠️ Élément #${id} introuvable dans le DOM.`);
+  }
+};
+
 // Charger dynamiquement le fichier content.js
 const script = document.createElement("script");
 script.src = "assets/data/content.js";
 script.onload = () => {
-  console.log("Données chargées :", data);
-
-  // Fonction pour éviter les erreurs si un élément est absent
-  const setTextContent = (id, text) => {
-    const element = document.getElementById(id);
-    if (element) element.textContent = text;
-  };
+  console.log("✅ Données chargées :", data);
 
   // Header
   setTextContent("header-logo", data.header.logo);
@@ -18,6 +22,7 @@ script.onload = () => {
   setTextContent("hero-title", data.hero.title);
   setTextContent("hero-subtitle", data.hero.subtitle);
   setTextContent("hero-cta", data.hero.cta);
+
   const heroImg = document.querySelector(".md\\:w-1\\/2 img");
   if (heroImg) heroImg.src = data.hero.image;
 
@@ -35,15 +40,15 @@ script.onload = () => {
     servicesContainer.innerHTML = "";
     data.services.forEach((service) => {
       servicesContainer.innerHTML += `
-        <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center">
-          <div class="text-5xl mb-4">${service.icon}</div>
-          <h3 class="text-2xl font-semibold text-gray-900">${service.title}</h3>
-          <p class="text-gray-600 my-4">${service.description}</p>
-          <a href="${service.link}" class="text-blue-600 font-semibold hover:underline flex items-center justify-center">
-            En savoir plus →
-          </a>
-        </div>
-      `;
+          <div class="bg-gray-100 p-6 rounded-lg shadow-md text-center">
+            <div class="text-5xl mb-4">${service.icon}</div>
+            <h3 class="text-2xl font-semibold text-gray-900">${service.title}</h3>
+            <p class="text-gray-600 my-4">${service.description}</p>
+            <a href="${service.link}" class="text-blue-600 font-semibold hover:underline flex items-center justify-center">
+              En savoir plus →
+            </a>
+          </div>
+        `;
     });
   }
 
@@ -56,17 +61,17 @@ script.onload = () => {
     data.testimonials.forEach((client) => {
       let stars = "★".repeat(client.rating) + "☆".repeat(5 - client.rating);
       testimonialsContainer.innerHTML += `
-        <div class="swiper-slide bg-white p-6 rounded-lg shadow-lg text-left border border-gray-200">
-          <div class="flex items-center mb-4">
-            <img src="${client.image}" alt="${client.name}" class="w-12 h-12 rounded-full mr-4">
-            <div>
-              <h3 class="text-lg font-semibold text-gray-900">${client.name}</h3>
-              <p class="text-yellow-500">${stars}</p>
+          <div class="swiper-slide bg-white p-6 rounded-lg shadow-lg text-left border border-gray-200">
+            <div class="flex items-center mb-4">
+              <img src="${client.image}" alt="${client.name}" class="w-12 h-12 rounded-full mr-4">
+              <div>
+                <h3 class="text-lg font-semibold text-gray-900">${client.name}</h3>
+                <p class="text-yellow-500">${stars}</p>
+              </div>
             </div>
+            <p class="text-gray-600 italic">"${client.comment}"</p>
           </div>
-          <p class="text-gray-600 italic">"${client.comment}"</p>
-        </div>
-      `;
+        `;
     });
 
     new Swiper(".swiper", {
