@@ -51,6 +51,29 @@ script.onload = () => {
         `;
     });
   }
+  // Récupération du conteneur "Pourquoi nous choisir"
+  const whyChooseContainer = document.getElementById("why-choose-container");
+
+  if (whyChooseContainer) {
+    console.log("📢 Injection des avantages dans 'Pourquoi nous choisir'"); // Vérification console
+    whyChooseContainer.innerHTML = ""; // Vide avant d'ajouter
+
+    data.why_choose_us.forEach((item) => {
+      whyChooseContainer.innerHTML += `
+      <div class="text-center">
+        <div class="bg-gray-200 w-20 h-20 mx-auto flex items-center justify-center rounded-full mb-4">
+          <img src="${item.icon}" alt="${item.title}" class="w-10 h-10">
+        </div>
+        <h3 class="text-xl font-semibold text-gray-900">${item.title}</h3>
+        <p class="text-gray-600 mt-2">${item.description}</p>
+      </div>
+    `;
+    });
+  } else {
+    console.warn(
+      "⚠️ Le conteneur #why-choose-container est introuvable dans le DOM."
+    );
+  }
 
   // Témoignages - Carrousel
   const testimonialsContainer = document.getElementById(
