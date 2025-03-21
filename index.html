@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BK Brillance - Accueil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header
+      class="flex justify-between items-center px-10 py-4 shadow-md bg-white"
+    >
+      <!-- Logo -->
+      <h1 id="header-logo" class="text-xl font-bold text-blue-600">
+        BK brillance
+      </h1>
+
+      <!-- Menu de navigation -->
+      <nav class="hidden md:flex space-x-8 text-gray-700 text-lg">
+        <a href="services.html" class="hover:text-blue-600">Services</a>
+        <a href="about.html" class="hover:text-blue-600">Pourquoi nous</a>
+        <a href="testimonials.html" class="hover:text-blue-600">Témoignages</a>
+        <a href="contact.html" class="hover:text-blue-600">Contact</a>
+      </nav>
+
+      <!-- Bouton Devis gratuit -->
+      <a
+        id="header-cta"
+        href="contact.html"
+        class="bg-blue-600 text-white px-5 py-2 rounded-full text-lg font-semibold hover:bg-blue-700 transition"
+      >
+        Devis gratuit
+      </a>
+      <!-- Menu mobile (optionnel) -->
+      <button class="md:hidden text-2xl">☰</button>
+    </header>
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-50 to-green-50 py-20 px-10">
+      <div
+        class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10"
+      >
+        <!-- Texte -->
+        <div class="text-center md:text-left md:w-1/2">
+          <h2
+            id="hero-title"
+            class="text-5xl font-extrabold text-gray-900 leading-tight"
+          >
+            Votre propreté, notre engagement
+          </h2>
+          <p id="hero-subtitle" class="text-lg text-gray-600 mt-4">
+            Nettoyage de qualité pour chantiers, cuisines et Airbnb
+          </p>
+          <!-- Boutons -->
+          <div class="mt-6 flex justify-center md:justify-start gap-4">
+            <a
+              id="hero-cta"
+              href="contact.html"
+              class="bg-blue-600 text-white px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition"
+            >
+              Demandez un devis gratuit
+            </a>
+            <a
+              href="services.html"
+              class="border border-blue-600 text-blue-600 px-6 py-3 rounded-full text-lg font-semibold hover:bg-blue-100 transition"
+            >
+              Nos services
+            </a>
+          </div>
+        </div>
+
+        <!-- Image -->
+        <div class="md:w-1/2 flex justify-center">
+          <img
+            src="assets/images/hero-image.jpg"
+            alt="Technicien de nettoyage"
+            class="w-full max-w-md md:max-w-lg rounded-2xl shadow-md"
+          />
+        </div>
+      </div>
+    </section>
+    <!-- Nos Services -->
+    <section class="py-20 px-10 bg-white">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-900 mb-6">Nos Services</h2>
+        <p class="text-lg text-gray-600 mb-12">
+          Des solutions professionnelles adaptées à vos besoins
+        </p>
+
+        <!-- Conteneur des services -->
+        <div id="services-container" class="grid md:grid-cols-3 gap-8">
+          <!-- Les services seront injectés ici par JS -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Pourquoi nous choisir -->
+    <section class="py-20 px-10 bg-blue-50">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          Pourquoi nous choisir ?
+        </h2>
+        <p class="text-lg text-gray-600 mb-12">
+          Notre engagement pour votre satisfaction
+        </p>
+
+        <!-- Conteneur des avantages -->
+        <div id="why-choose-container" class="grid md:grid-cols-4 gap-8">
+          <!-- Les avantages seront injectés ici par JS -->
+        </div>
+      </div>
+    </section>
+    <!-- Témoignages - Carrousel -->
+    <section class="py-20 px-10 bg-white">
+      <div class="max-w-6xl mx-auto text-center">
+        <h2 class="text-4xl font-bold text-gray-900 mb-4">
+          Ce que disent nos clients
+        </h2>
+        <p class="text-lg text-gray-600 mb-12">
+          Des avis qui parlent d'eux-mêmes
+        </p>
+
+        <!-- Conteneur du carrousel -->
+        <div class="relative">
+          <div class="swiper">
+            <div id="testimonials-container" class="swiper-wrapper">
+              <!-- Les témoignages seront injectés ici par JS -->
+            </div>
+          </div>
+
+          <!-- Pagination sous les cartes -->
+          <div class="swiper-pagination mt-8"></div>
+
+          <!-- Flèches repositionnées aux extrémités & cachées sur mobile -->
+          <div
+            class="swiper-button-prev absolute hidden md:flex -left-36 top-1/2 transform -translate-y-1/2"
+          ></div>
+          <div
+            class="swiper-button-next absolute hidden md:flex -right-36 top-1/2 transform -translate-y-1/2"
+          ></div>
+        </div>
+      </div>
+    </section>
+    <!-- Section Contact -->
+    <section class="py-20 px-10 bg-blue-50 text-center">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-4xl font-bold text-gray-900 mb-2">Contactez-nous</h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Obtenez votre devis gratuit en moins de 24h
+        </p>
+      </div>
+
+      <!-- Formulaire -->
+      <div class="max-w-2xl w-full mx-auto bg-white p-8 rounded-lg shadow-lg">
+        <form id="contact-form" class="space-y-4">
+          <!-- Nom, Email & Téléphone -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <label for="name" class="block text-gray-700 font-semibold"
+                >Nom complet</label
+              >
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="w-full p-3 border rounded-md"
+              />
+            </div>
+            <div>
+              <label for="email" class="block text-gray-700 font-semibold"
+                >Email</label
+              >
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="w-full p-3 border rounded-md"
+              />
+            </div>
+          </div>
+          <div>
+            <label for="phone" class="block text-gray-700 font-semibold"
+              >Numéro de téléphone</label
+            >
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              class="w-full p-3 border rounded-md"
+            />
+          </div>
+
+          <!-- Type de service -->
+          <div>
+            <label for="service" class="block text-gray-700 font-semibold"
+              >Type de service</label
+            >
+            <select
+              id="service"
+              name="service"
+              class="w-full p-3 border rounded-md"
+            >
+              <option value="Nettoyage fin de chantier">
+                Nettoyage fin de chantier
+              </option>
+              <option value="Nettoyage de hottes">Nettoyage de hottes</option>
+              <option value="Entretien Airbnb">Entretien Airbnb</option>
+            </select>
+          </div>
+
+          <!-- Sélection de la surface -->
+          <div>
+            <label for="surface" class="block text-gray-700 font-semibold"
+              >Surface à nettoyer (en m²)</label
+            >
+            <div class="flex items-center gap-4">
+              <input
+                type="range"
+                id="surface"
+                name="surface"
+                min="10"
+                max="500"
+                value="50"
+                class="w-full cursor-pointer"
+              />
+              <span id="surface-value" class="text-gray-900 font-semibold"
+                >50m²</span
+              >
+            </div>
+          </div>
+
+          <!-- Message -->
+          <div>
+            <label for="message" class="block text-gray-700 font-semibold"
+              >Message</label
+            >
+            <textarea
+              id="message"
+              name="message"
+              class="w-full p-3 border rounded-md"
+              rows="4"
+            ></textarea>
+          </div>
+
+          <!-- Bouton d'envoi -->
+          <button
+            type="submit"
+            class="w-full bg-blue-600 text-white p-3 rounded-md hover:bg-blue-700 transition"
+          >
+            Envoyer ma demande
+          </button>
+        </form>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-10 px-10">
+      <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8 text-sm">
+        <!-- Infos Entreprise -->
+        <div>
+          <h3 class="text-lg font-bold text-white" id="footer-company-name">
+            BK Brillance
+          </h3>
+          <p id="footer-company-desc" class="mt-2">
+            Votre partenaire propreté professionnel
+          </p>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h3 class="text-lg font-bold text-white">Services</h3>
+          <ul id="footer-services" class="mt-2 space-y-1">
+            <!-- Les services seront injectés dynamiquement -->
+          </ul>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h3 class="text-lg font-bold text-white">Contact</h3>
+          <p id="footer-phone" class="mt-2">📞 01 23 45 67 89</p>
+          <p id="footer-email">📧 contact@bkbrillance.fr</p>
+          <p id="footer-hours">🕒 7j/7 de 8h à 20h</p>
+        </div>
+
+        <!-- Réseaux sociaux -->
+        <div class="md:col-span-3 flex justify-center space-x-4 mt-6">
+          <a href="#" id="footer-facebook" class="hover:text-white"
+            ><i class="fab fa-facebook-f"></i
+          ></a>
+          <a href="#" id="footer-instagram" class="hover:text-white"
+            ><i class="fab fa-instagram"></i
+          ></a>
+          <a href="#" id="footer-linkedin" class="hover:text-white"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+        </div>
+      </div>
+
+      <!-- Copyright -->
+      <div class="text-center text-gray-500 text-xs mt-6">
+        © <span id="footer-year"></span> BK Brillance. Tous droits réservés.
+      </div>
+    </footer>
+
+    <!-- Font Awesome pour les icônes -->
+    <script
+      src="https://kit.fontawesome.com/YOUR_KIT_CODE.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Swiper.js CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Scripts -->
+    <script src="assets/js/script.js"></script>
+  </body>
+</html>
