@@ -120,6 +120,14 @@ script.onload = () => {
       },
     });
   }
+  const surfaceInput = document.getElementById("surface");
+  const surfaceValue = document.getElementById("surface-value");
+
+  if (surfaceInput && surfaceValue) {
+    surfaceInput.addEventListener("input", () => {
+      surfaceValue.textContent = surfaceInput.value + " m²";
+    });
+  }
 
   // Footer
   setTextContent("footer-company-name", data.footer.company_name);
@@ -147,3 +155,14 @@ script.onload = () => {
   }
 };
 document.body.appendChild(script);
+document.querySelectorAll(".scroll-link").forEach((link) => {
+  link.addEventListener("click", (e) => {
+    e.preventDefault(); // Empêche le comportement par défaut
+    const targetId = link.getAttribute("href").substring(1); // Récupère l'ID sans le #
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: "smooth" });
+    }
+  });
+});
