@@ -6,6 +6,7 @@
     <title>BK Brillance - Accueil</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
+ 
   <body class="bg-white text-gray-800">
     <!-- Header -->
     <header  class="fixed top-0 left-0 w-full bg-white/30 backdrop-blur-md shadow-md z-50">
@@ -338,5 +339,33 @@
 
     <!-- Scripts -->
     <script src="assets/js/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script>
+      (function() {
+        emailjs.init("jjZXbR5Q2q3D9o8Go"); // Remplace par ton User ID
+      })();
+    
+      document.getElementById("contact-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+    
+        const templateParams = {
+          name: document.getElementById("name").value,
+          email: document.getElementById("email").value,
+          phone: document.getElementById("phone").value,
+          service: document.getElementById("service").value,
+          surface: document.getElementById("surface").value + "m²",
+          message: document.getElementById("message").value
+        };
+    
+        emailjs.send("service_0i22p57", "template_5309r1j", templateParams)
+          .then(response => {
+            alert("Votre demande de devis a bien été envoyée !");
+            document.getElementById("contact-form").reset();
+          }, error => {
+            alert("Erreur lors de l'envoi. Réessayez plus tard.");
+          });
+      });
+    </script>
+    
   </body>
 </html>
