@@ -8,34 +8,35 @@
   </head>
   <body class="bg-white text-gray-800">
     <!-- Header -->
-    <header
-      class="flex justify-between items-center px-10 py-4 shadow-md bg-white"
-    >
-      <!-- Logo -->
-      <h1 id="header-logo" class="text-xl font-bold text-blue-600">
-        BK brillance
-      </h1>
-
-      <!-- Menu de navigation -->
-      <nav class="hidden md:flex space-x-8 text-gray-700 text-lg">
-        <a href="#services" class="scroll-link hover:text-blue-600">Services</a>
-        <a href="#why-choose" class="scroll-link hover:text-blue-600">Pourquoi nous</a>
-        <a href="#testimonials" class="scroll-link hover:text-blue-600">Témoignages</a>
-        <a href="#contact" class="scroll-link hover:text-blue-600">Contact</a>
-      </nav>
+    <header class="flex justify-between items-center px-6 py-4 shadow-md bg-white">
+        <!-- Logo -->
+        <h1 id="header-logo" class="text-xl font-bold text-blue-600">
+          BK brillance
+        </h1>
       
-
-      <!-- Bouton Devis gratuit -->
-      <a
-        id="header-cta"
-        href="contact.html"
-        class="bg-blue-600 text-white px-5 py-2 rounded-full text-lg font-semibold hover:bg-blue-700 transition"
-      >
-        Devis gratuit
-      </a>
-      <!-- Menu mobile (optionnel) -->
-      <button class="md:hidden text-2xl">☰</button>
-    </header>
+        <!-- Icône menu burger (mobile) -->
+        <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
+          ☰
+        </button>
+      
+        <!-- Menu de navigation (visible sur desktop) -->
+        <nav id="nav-menu" class="hidden md:flex space-x-8 text-gray-700 text-lg">
+          <a href="#services" class="scroll-link hover:text-blue-600">Services</a>
+          <a href="#why-choose" class="scroll-link hover:text-blue-600">Pourquoi nous</a>
+          <a href="#testimonials" class="scroll-link hover:text-blue-600">Témoignages</a>
+          <a href="#contact" class="scroll-link hover:text-blue-600">Contact</a>
+        </nav>
+      
+        <!-- Menu mobile (caché par défaut) -->
+        <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-6 text-lg text-gray-800">
+          <button id="menu-close" class="absolute top-6 right-6 text-3xl focus:outline-none">✖</button>
+          <a href="#services" class="scroll-link hover:text-blue-600">Services</a>
+          <a href="#why-choose" class="scroll-link hover:text-blue-600">Pourquoi nous</a>
+          <a href="#testimonials" class="scroll-link hover:text-blue-600">Témoignages</a>
+          <a href="#contact" class="scroll-link hover:text-blue-600">Contact</a>
+        </div>
+      </header>
+      
     <!-- Hero Section -->
     <section class="bg-gradient-to-r from-blue-50 to-green-50 py-20 px-10">
       <div

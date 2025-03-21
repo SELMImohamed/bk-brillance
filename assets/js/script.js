@@ -1,3 +1,25 @@
+// Gestion du menu mobile
+const menuToggle = document.getElementById("menu-toggle");
+const menuClose = document.getElementById("menu-close");
+const mobileMenu = document.getElementById("mobile-menu");
+
+if (menuToggle && menuClose && mobileMenu) {
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.remove("hidden");
+  });
+
+  menuClose.addEventListener("click", () => {
+    mobileMenu.classList.add("hidden");
+  });
+
+  // Fermer le menu si on clique sur un lien
+  document.querySelectorAll("#mobile-menu a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
+  });
+}
+
 // Fonction pour modifier le texte sans erreur si l'élément est absent
 const setTextContent = (id, text) => {
   const element = document.getElementById(id);
