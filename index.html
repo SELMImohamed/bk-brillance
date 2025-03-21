@@ -8,37 +8,58 @@
   </head>
   <body class="bg-white text-gray-800">
     <!-- Header -->
-    <header class="flex justify-between items-center px-6 py-4 shadow-md bg-white">
-        <!-- Logo -->
-        <h1 id="header-logo" class="text-xl font-bold text-blue-600">
-          BK brillance
-        </h1>
+    <header  class="fixed top-0 left-0 w-full bg-white/30 backdrop-blur-md shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
+          <!-- Logo -->
+          <div class="text-2xl font-bold text-blue-700">BK brillance</div>
       
-        <!-- Icône menu burger (mobile) -->
-        <button id="menu-toggle" class="md:hidden text-2xl focus:outline-none">
-          ☰
-        </button>
+          <!-- Menu (Desktop) -->
+          <nav class="hidden md:flex space-x-8 text-gray-600 text-lg">
+            <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
+            <a href="#why-choose" class="hover:text-blue-600 transition-colors">Pourquoi nous</a>
+            <a href="#testimonials" class="hover:text-blue-600 transition-colors">Témoignages</a>
+            <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
+          </nav>
       
-        <!-- Menu de navigation (visible sur desktop) -->
-        <nav id="nav-menu" class="hidden md:flex space-x-8 text-gray-700 text-lg">
-          <a href="#services" class="scroll-link hover:text-blue-600">Services</a>
-          <a href="#why-choose" class="scroll-link hover:text-blue-600">Pourquoi nous</a>
-          <a href="#testimonials" class="scroll-link hover:text-blue-600">Témoignages</a>
-          <a href="#contact" class="scroll-link hover:text-blue-600">Contact</a>
-        </nav>
+          <!-- Bouton "Devis gratuit" -->
+          <a href="#devis" class="hidden md:inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors">
+            Devis gratuit
+          </a>
       
-        <!-- Menu mobile (caché par défaut) -->
-        <div id="mobile-menu" class="hidden fixed inset-0 bg-white z-50 flex flex-col items-center justify-center space-y-6 text-lg text-gray-800">
-          <button id="menu-close" class="absolute top-6 right-6 text-3xl focus:outline-none">✖</button>
-          <a href="#services" class="scroll-link hover:text-blue-600">Services</a>
-          <a href="#why-choose" class="scroll-link hover:text-blue-600">Pourquoi nous</a>
-          <a href="#testimonials" class="scroll-link hover:text-blue-600">Témoignages</a>
-          <a href="#contact" class="scroll-link hover:text-blue-600">Contact</a>
+          <!-- Bouton menu mobile -->
+          <button id="menu-btn" class="md:hidden text-blue-700 focus:outline-none">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      
+        <!-- Menu Mobile -->
+        <div id="mobile-menu"class="md:hidden hidden px-6 pb-4 bg-white/30 backdrop-blur-md shadow-md">
+          <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
+          <a href="#why-choose" class="block py-2 text-gray-700 hover:text-blue-600">Pourquoi nous</a>
+          <a href="#testimonials" class="block py-2 text-gray-700 hover:text-blue-600">Témoignages</a>
+          <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
+          <a href="#devis" class="block mt-2 bg-blue-600 text-white px-6 py-2 rounded-full text-lg font-medium text-center hover:bg-blue-700 transition-colors">
+            Devis gratuit
+          </a>
         </div>
       </header>
+      <script>
+        const btn = document.getElementById('menu-btn');
+        const menu = document.getElementById('mobile-menu');
+      
+        btn.addEventListener('click', () => {
+          menu.classList.toggle('hidden');
+        });
+      </script>
+      
       
     <!-- Hero Section -->
+
     <section class="bg-gradient-to-r from-blue-50 to-green-50 py-20 px-10">
+
       <div
         class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10"
       >
