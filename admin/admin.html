@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | BK Brillance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50 text-gray-900">
+    <div
+      class="max-w-7xl mx-auto py-10 px-6 grid grid-cols-1 lg:grid-cols-2 gap-6"
+    >
+      <!-- Colonne gauche : Blocs d'administration -->
+      <div id="admin-forms" class="space-y-6">
+        <!-- Exemple de carte repliable -->
+        <div class="bg-white rounded shadow">
+          <button
+            type="button"
+            class="w-full text-left px-6 py-4 font-semibold text-lg border-b toggle-section"
+          >
+            Informations générales
+          </button>
+          <form id="general-form" class="space-y-4 p-6 hidden">
+            <div>
+              <label for="company_name" class="block font-semibold mb-1"
+                >Nom de l’entreprise</label
+              >
+              <input
+                type="text"
+                id="company_name"
+                class="w-full p-3 border rounded"
+              />
+            </div>
+            <div>
+              <label for="company_desc" class="block font-semibold mb-1"
+                >Description (footer)</label
+              >
+              <textarea
+                id="company_desc"
+                rows="3"
+                class="w-full p-3 border rounded"
+              ></textarea>
+            </div>
+            <button
+              type="submit"
+              class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+            >
+              Enregistrer
+            </button>
+            <p id="save-message" class="text-green-600 hidden">
+              ✅ Modifications enregistrées
+            </p>
+          </form>
+        </div>
+
+        <!-- Bloc Services -->
+        <div class="bg-white rounded shadow">
+          <button
+            type="button"
+            class="w-full text-left px-6 py-4 font-semibold text-lg border-b toggle-section"
+          >
+            Services
+          </button>
+          <form id="services-form" class="space-y-4 p-6 hidden">
+            <div id="services-container" class="space-y-4"></div>
+            <button
+              type="button"
+              id="add-service"
+              class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+            >
+              + Ajouter un service
+            </button>
+            <button
+              type="submit"
+              class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+            >
+              Enregistrer les services
+            </button>
+            <p id="service-save-message" class="text-green-600 hidden">
+              ✅ Services enregistrés
+            </p>
+          </form>
+        </div>
+
+        <!-- Bloc Témoignages -->
+        <div class="bg-white rounded shadow">
+          <button
+            type="button"
+            class="w-full text-left px-6 py-4 font-semibold text-lg border-b toggle-section"
+          >
+            Témoignages
+          </button>
+          <form id="testimonials-form" class="space-y-4 p-6 hidden">
+            <div id="testimonials-container" class="space-y-4"></div>
+            <button
+              type="button"
+              id="add-testimonial"
+              class="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+            >
+              + Ajouter un témoignage
+            </button>
+            <button
+              type="submit"
+              class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+            >
+              Enregistrer les témoignages
+            </button>
+            <p id="testimonial-save-message" class="text-green-600 hidden">
+              ✅ Témoignages enregistrés
+            </p>
+          </form>
+        </div>
+
+        <!-- Bloc Coordonnées -->
+        <div class="bg-white rounded shadow">
+          <button
+            type="button"
+            class="w-full text-left px-6 py-4 font-semibold text-lg border-b toggle-section"
+          >
+            Coordonnées & Réseaux sociaux
+          </button>
+          <form id="contact-form" class="space-y-4 p-6 hidden">
+            <input
+              type="text"
+              id="phone"
+              placeholder="Téléphone"
+              class="w-full p-2 border rounded"
+            />
+            <input
+              type="email"
+              id="email"
+              placeholder="Email"
+              class="w-full p-2 border rounded"
+            />
+            <input
+              type="text"
+              id="hours"
+              placeholder="Horaires"
+              class="w-full p-2 border rounded"
+            />
+            <input
+              type="text"
+              id="facebook"
+              placeholder="Facebook"
+              class="w-full p-2 border rounded"
+            />
+            <input
+              type="text"
+              id="instagram"
+              placeholder="Instagram"
+              class="w-full p-2 border rounded"
+            />
+            <input
+              type="text"
+              id="linkedin"
+              placeholder="LinkedIn"
+              class="w-full p-2 border rounded"
+            />
+            <button
+              type="submit"
+              class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+            >
+              Enregistrer les coordonnées
+            </button>
+            <p id="contact-save-message" class="text-green-600 hidden">
+              ✅ Coordonnées mises à jour
+            </p>
+          </form>
+        </div>
+
+        <!-- Bloc Hero -->
+        <div class="bg-white rounded shadow">
+          <button
+            type="button"
+            class="w-full text-left px-6 py-4 font-semibold text-lg border-b toggle-section"
+          >
+            Section Hero
+          </button>
+          <form id="hero-form" class="space-y-4 p-6 hidden">
+            <input
+              type="text"
+              id="hero_title"
+              placeholder="Titre principal"
+              class="w-full p-2 border rounded"
+            />
+            <input
+              type="text"
+              id="hero_subtitle"
+              placeholder="Sous-titre"
+              class="w-full p-2 border rounded"
+            />
+            <input
+              type="text"
+              id="hero_cta"
+              placeholder="Texte du bouton"
+              class="w-full p-2 border rounded"
+            />
+            <input
+              type="text"
+              id="hero_image"
+              placeholder="Image (nom ou URL)"
+              class="w-full p-2 border rounded"
+            />
+            <button
+              type="submit"
+              class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700"
+            >
+              Enregistrer la section Hero
+            </button>
+            <p id="hero-save-message" class="text-green-600 hidden">
+              ✅ Section Hero enregistrée
+            </p>
+          </form>
+        </div>
+      </div>
+
+      <!-- Colonne droite : Iframe Preview -->
+      <div>
+        <h2 class="text-xl font-semibold mb-4">Prévisualisation du site</h2>
+        <iframe
+          src="/"
+          class="w-full h-[800px] border rounded-lg shadow-md"
+        ></iframe>
+      </div>
+    </div>
+
+    <script>
+      document.querySelectorAll(".toggle-section").forEach((button) => {
+        button.addEventListener("click", () => {
+          const form = button.nextElementSibling;
+          form.classList.toggle("hidden");
+        });
+      });
+    </script>
+    <script src="admin.js"></script>
+  </body>
+</html>
