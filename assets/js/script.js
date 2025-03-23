@@ -1,6 +1,6 @@
 // Charger dynamiquement le fichier content.js depuis le backend Render
 const script = document.createElement("script");
-script.src = "https://bk-brillance.onrender.com/assets/data/content.js";
+script.src = "../assets/data/content.js";
 script.onload = () => {
   console.log("✅ Données chargées :", data);
 
