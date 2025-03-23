@@ -6,61 +6,102 @@
     <title>BK Brillance - Accueil</title>
     <script src="https://cdn.tailwindcss.com"></script>
   </head>
- 
+
   <body class="bg-white text-gray-800">
     <!-- Header -->
-    <header  class="fixed top-0 left-0 w-full bg-white/30 backdrop-blur-md shadow-md z-50">
-        <div class="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center">
-          <!-- Logo -->
-          <div class="text-2xl font-bold text-blue-700">BK brillance</div>
-      
-          <!-- Menu (Desktop) -->
-          <nav class="hidden md:flex space-x-8 text-gray-600 text-lg">
-            <a href="#services" class="hover:text-blue-600 transition-colors">Services</a>
-            <a href="#why-choose" class="hover:text-blue-600 transition-colors">Pourquoi nous</a>
-            <a href="#testimonials" class="hover:text-blue-600 transition-colors">Témoignages</a>
-            <a href="#contact" class="hover:text-blue-600 transition-colors">Contact</a>
-          </nav>
-      
-          <!-- Bouton "Devis gratuit" -->
-          <a href="#devis" class="hidden md:inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors">
-            Devis gratuit
-          </a>
-      
-          <!-- Bouton menu mobile -->
-          <button id="menu-btn" class="md:hidden text-blue-700 focus:outline-none">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
-                 viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
-          </button>
-        </div>
-      
-        <!-- Menu Mobile -->
-        <div id="mobile-menu"class="md:hidden hidden px-6 pb-4 bg-white/30 backdrop-blur-md shadow-md">
-          <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600">Services</a>
-          <a href="#why-choose" class="block py-2 text-gray-700 hover:text-blue-600">Pourquoi nous</a>
-          <a href="#testimonials" class="block py-2 text-gray-700 hover:text-blue-600">Témoignages</a>
-          <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600">Contact</a>
-          <a href="#devis" class="block mt-2 bg-blue-600 text-white px-6 py-2 rounded-full text-lg font-medium text-center hover:bg-blue-700 transition-colors">
-            Devis gratuit
-          </a>
-        </div>
-      </header>
-      <script>
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
-      
-        btn.addEventListener('click', () => {
-          menu.classList.toggle('hidden');
-        });
-      </script>
-      
-      
+    <header
+      class="fixed top-0 left-0 w-full bg-white/30 backdrop-blur-md shadow-md z-50"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-8 py-4 flex justify-between items-center"
+      >
+        <!-- Logo -->
+        <div class="text-2xl font-bold text-blue-700">BK brillance</div>
+
+        <!-- Menu (Desktop) -->
+        <nav class="hidden md:flex space-x-8 text-gray-600 text-lg">
+          <a href="#services" class="hover:text-blue-600 transition-colors"
+            >Services</a
+          >
+          <a href="#why-choose" class="hover:text-blue-600 transition-colors"
+            >Pourquoi nous</a
+          >
+          <a href="#testimonials" class="hover:text-blue-600 transition-colors"
+            >Témoignages</a
+          >
+          <a href="#contact" class="hover:text-blue-600 transition-colors"
+            >Contact</a
+          >
+        </nav>
+
+        <!-- Bouton "Devis gratuit" -->
+        <a
+          href="#devis"
+          class="hidden md:inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-lg font-medium hover:bg-blue-700 transition-colors"
+        >
+          Devis gratuit
+        </a>
+
+        <!-- Bouton menu mobile -->
+        <button
+          id="menu-btn"
+          class="md:hidden text-blue-700 focus:outline-none"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            viewBox="0 0 24 24"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Menu Mobile -->
+      <div
+        id="mobile-menu"
+        class="md:hidden hidden px-6 pb-4 bg-white/30 backdrop-blur-md shadow-md"
+      >
+        <a href="#services" class="block py-2 text-gray-700 hover:text-blue-600"
+          >Services</a
+        >
+        <a
+          href="#why-choose"
+          class="block py-2 text-gray-700 hover:text-blue-600"
+          >Pourquoi nous</a
+        >
+        <a
+          href="#testimonials"
+          class="block py-2 text-gray-700 hover:text-blue-600"
+          >Témoignages</a
+        >
+        <a href="#contact" class="block py-2 text-gray-700 hover:text-blue-600"
+          >Contact</a
+        >
+        <a
+          href="#devis"
+          class="block mt-2 bg-blue-600 text-white px-6 py-2 rounded-full text-lg font-medium text-center hover:bg-blue-700 transition-colors"
+        >
+          Devis gratuit
+        </a>
+      </div>
+    </header>
+    <script>
+      const btn = document.getElementById("menu-btn");
+      const menu = document.getElementById("mobile-menu");
+
+      btn.addEventListener("click", () => {
+        menu.classList.toggle("hidden");
+      });
+    </script>
+
     <!-- Hero Section -->
 
     <section class="bg-gradient-to-r from-blue-50 to-green-50 py-20 px-10">
-
       <div
         class="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10"
       >
@@ -76,7 +117,9 @@
             Nettoyage de qualité pour chantiers, cuisines et Airbnb
           </p>
           <!-- Boutons -->
-          <div class="mt-6 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+          <div
+            class="mt-6 flex flex-col sm:flex-row justify-center md:justify-start gap-4"
+          >
             <a
               id="hero-cta"
               href="contact.html"
@@ -90,7 +133,7 @@
             >
               Nos services
             </a>
-          </div>          
+          </div>
         </div>
 
         <!-- Image -->
@@ -327,7 +370,8 @@
 
     <!-- Font Awesome pour les icônes -->
     <script
-      src="<script src="https://kit.fontawesome.com/bb7034f9ae.js" crossorigin="anonymous"></script>"
+      src="https://kit.fontawesome.com/bb7034f9ae.js"
+      crossorigin="anonymous"
     ></script>
 
     <!-- Swiper.js CDN -->
@@ -341,31 +385,36 @@
     <script src="assets/js/script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <script>
-      (function() {
+      (function () {
         emailjs.init("jjZXbR5Q2q3D9o8Go"); // Remplace par ton User ID
       })();
-    
-      document.getElementById("contact-form").addEventListener("submit", function(event) {
-        event.preventDefault();
-    
-        const templateParams = {
-          name: document.getElementById("name").value,
-          email: document.getElementById("email").value,
-          phone: document.getElementById("phone").value,
-          service: document.getElementById("service").value,
-          surface: document.getElementById("surface").value + "m²",
-          message: document.getElementById("message").value
-        };
-    
-        emailjs.send("service_0i22p57", "template_5309r1j", templateParams)
-          .then(response => {
-            alert("Votre demande de devis a bien été envoyée !");
-            document.getElementById("contact-form").reset();
-          }, error => {
-            alert("Erreur lors de l'envoi. Réessayez plus tard.");
-          });
-      });
+
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          const templateParams = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            service: document.getElementById("service").value,
+            surface: document.getElementById("surface").value + "m²",
+            message: document.getElementById("message").value,
+          };
+
+          emailjs
+            .send("service_0i22p57", "template_5309r1j", templateParams)
+            .then(
+              (response) => {
+                alert("Votre demande de devis a bien été envoyée !");
+                document.getElementById("contact-form").reset();
+              },
+              (error) => {
+                alert("Erreur lors de l'envoi. Réessayez plus tard.");
+              }
+            );
+        });
     </script>
-    
   </body>
 </html>
