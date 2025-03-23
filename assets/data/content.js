@@ -1,6 +1,6 @@
 const data = {
   "header": {
-    "logo": "Bk",
+    "logo": "Bkj",
     "cta": "Devis gratuit",
     "menu": [
       "Services",
@@ -10,8 +10,8 @@ const data = {
     ]
   },
   "footer": {
-    "company_name": "Bk",
-    "company_desc": "Votre partenaire propreté professionnel",
+    "company_name": "Bkj",
+    "company_desc": "Votre partenaire propreté professionnelll",
     "contact": {
       "phone": "01 23 45 67 89",
       "email": "contact@bkbrillance.fr",
