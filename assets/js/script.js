@@ -32,7 +32,7 @@ const setTextContent = (id, text) => {
 
 // Charger dynamiquement le fichier content.js
 const script = document.createElement("script");
-script.src = "assets/data/content.js";
+script.src = "server/assets/data/content.js";
 script.onload = () => {
   console.log("✅ Données chargées :", data);
 
@@ -188,3 +188,44 @@ document.querySelectorAll(".scroll-link").forEach((link) => {
     }
   });
 });
+const canvas = document.getElementById("bubbleCanvas");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const bubbles = [];
+
+function createBubble() {
+  return {
+    x: Math.random() * canvas.width,
+    y: canvas.height + Math.random() * 100,
+    radius: Math.random() * 10 + 5,
+    speed: Math.random() * 2 + 1,
+    opacity: Math.random() * 0.5 + 0.3,
+  };
+}
+
+for (let i = 0; i < 50; i++) {
+  bubbles.push(createBubble());
+}
+
+function animateBubbles() {
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  bubbles.forEach((bubble, index) => {
+    bubble.y -= bubble.speed;
+    if (bubble.y < -bubble.radius) {
+      bubbles[index] = createBubble();
+    }
+
+    ctx.beginPath();
+    ctx.arc(bubble.x, bubble.y, bubble.radius, 0, Math.PI * 2);
+    ctx.fillStyle = `rgba(255, 255, 255, ${bubble.opacity})`;
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animateBubbles);
+}
+
+animateBubbles();
