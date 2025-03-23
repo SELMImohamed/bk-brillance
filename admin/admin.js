@@ -173,7 +173,7 @@ document.querySelectorAll("form").forEach((f) =>
     };
 
     try {
-      const res = await fetch("https://bk-brillance-api.onrender.com", {
+      const res = await fetch("http://localhost:3000/api/update", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

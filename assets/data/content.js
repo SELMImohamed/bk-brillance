@@ -12,7 +12,6 @@ const data = {
   "footer": {
     "company_name": "Bk",
     "company_desc": "Votre partenaire propreté professionnel",
-    "services": [],
     "contact": {
       "phone": "01 23 45 67 89",
       "email": "contact@bkbrillance.fr",
@@ -22,7 +21,8 @@ const data = {
       "facebook": "https://facebook.com/bkbrillance",
       "instagram": "https://instagram.com/bkbrillance",
       "linkedin": "https://linkedin.com/company/bkbrillance"
-    }
+    },
+    "services": []
   },
   "hero": {
     "title": "Votre propreté, notre engagement",
@@ -68,5 +68,26 @@ const data = {
       "image": "assets/images/sophie-dubois.jpg"
     }
   ],
-  "why_choose_us": []
+  "why_choose_us": [
+    {
+      "title": "Intervention rapide",
+      "description": "Nous intervenons dans les 24h.",
+      "icon": "⚡"
+    },
+    {
+      "title": "Produits écologiques",
+      "description": "Des produits bons pour l’environnement.",
+      "icon": "🌿"
+    },
+    {
+      "title": "Personnel qualifié",
+      "description": "Notre équipe est formée et certifiée.",
+      "icon": "🧼"
+    },
+    {
+      "title": "Satisfaction garantie",
+      "description": "Votre satisfaction est notre priorité.",
+      "icon": "✅"
+    }
+  ]
 };

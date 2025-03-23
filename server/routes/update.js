@@ -4,25 +4,20 @@ const path = require("path");
 
 const router = express.Router();
 
-// Route POST : reçoit les données du formulaire admin
 router.post("/", (req, res) => {
-  const data = req.body;
+  const newData = req.body;
+  const filePath = path.join(__dirname, "../assets/data/content.js");
 
-  // Chemin vers content.js (à adapter si ton chemin est différent)
-  const contentPath = path.join(__dirname, "../../assets/data/content.js");
+  const content = "const data = " + JSON.stringify(newData, null, 2) + ";\n";
 
-  // Format JS valide (on exporte une variable const data = { ... })
-  const contentString = `const data = ${JSON.stringify(data, null, 2)};`;
-
-  // Écriture du fichier
-  fs.writeFile(contentPath, contentString, (err) => {
+  fs.writeFile(filePath, content, "utf8", (err) => {
     if (err) {
-      console.error("❌ Erreur lors de l’écriture dans content.js :", err);
+      console.error("❌ Erreur lors de l'écriture dans content.js :", err);
       return res.status(500).json({ message: "Erreur serveur." });
     }
 
-    console.log("✅ content.js mis à jour !");
-    res.status(200).json({ message: "Mise à jour réussie !" });
+    console.log("✅ Fichier content.js mis à jour avec succès.");
+    res.status(200).json({ message: "Contenu mis à jour." });
   });
 });
 
