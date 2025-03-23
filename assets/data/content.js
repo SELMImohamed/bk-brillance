@@ -1,6 +1,6 @@
 const data = {
   "header": {
-    "logo": "test 4H3",
+    "logo": "test 4H",
     "cta": "Devis gratuit",
     "menu": [
       "Services",
@@ -10,7 +10,7 @@ const data = {
     ]
   },
   "footer": {
-    "company_name": "test 4H3",
+    "company_name": "test 4H",
     "company_desc": "Votre partenaire propreté professionnelll",
     "contact": {
       "phone": "01 23 45 67 89",
@@ -25,7 +25,7 @@ const data = {
     "services": []
   },
   "hero": {
-    "title": "Votre propreté, notre engagements test4H54",
+    "title": "Votre propreté, notre engagements test4H56",
     "subtitle": "Nettoyage de qualité pour chantiers, cuisines et Airbnb",
     "cta": "Demandez un devis gratuit",
     "button_services": "Nos services",

@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
   const newData = req.body;
-  const filePath = path.join(__dirname, "../assets/data/content.js");
+  const filePath = path.join(__dirname, "../../assets/data/content.js");
 
   const content = "const data = " + JSON.stringify(newData, null, 2) + ";\n";
 
