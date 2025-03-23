@@ -22,8 +22,9 @@ script.onload = () => {
   const heroTitle = document.getElementById("hero-title");
   const heroSubtitle = document.getElementById("hero-subtitle");
   const heroCTA = document.getElementById("hero-cta");
-  const heroImg = document.querySelector(".md:w-1/2 img");
+  const heroImg = document.getElementById("hero-image");
 
+  if (heroImg) heroImg.src = data.hero.image;
   if (heroTitle) heroTitle.textContent = data.hero.title;
   if (heroSubtitle) heroSubtitle.textContent = data.hero.subtitle;
   if (heroCTA) heroCTA.textContent = data.hero.cta;

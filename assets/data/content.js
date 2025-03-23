@@ -1,6 +1,6 @@
 const data = {
   "header": {
-    "logo": "test 4H17",
+    "logo": "test 4H19",
     "cta": "Devis gratuit",
     "menu": [
       "Services",
@@ -10,7 +10,7 @@ const data = {
     ]
   },
   "footer": {
-    "company_name": "test 4H17",
+    "company_name": "test 4H19",
     "company_desc": "Votre partenaire propreté professionnelll",
     "contact": {
       "phone": "01 23 45 67 89",
