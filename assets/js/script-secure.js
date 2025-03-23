@@ -22,7 +22,7 @@ script.onload = () => {
   const heroTitle = document.getElementById("hero-title");
   const heroSubtitle = document.getElementById("hero-subtitle");
   const heroCTA = document.getElementById("hero-cta");
-  const heroImg = document.querySelector(".md:w-1/2 img");
+  const heroImg = document.querySelector(".md\:w-1\/2 img");
 
   if (heroTitle) heroTitle.textContent = data.hero.title;
   if (heroSubtitle) heroSubtitle.textContent = data.hero.subtitle;
@@ -33,9 +33,8 @@ script.onload = () => {
   const servicesContainer = document.getElementById("services-container");
   if (servicesContainer) {
     servicesContainer.innerHTML = "";
-    data.services.forEach((service) => {
-      const isImage =
-        service.icon.includes("assets/") || service.icon.startsWith("http");
+    data.services.forEach(service => {
+      const isImage = service.icon.includes("assets/") || service.icon.startsWith("http");
       const iconHTML = isImage
         ? `<img src="${service.icon}" alt="${service.title}" class="w-12 h-12 mx-auto mb-4">`
         : `<div class="text-5xl mb-4">${service.icon}</div>`;
@@ -45,9 +44,7 @@ script.onload = () => {
           ${iconHTML}
           <h3 class="text-2xl font-semibold text-gray-900">${service.title}</h3>
           <p class="text-gray-600 my-4">${service.description}</p>
-          <a href="${
-            service.link || "#"
-          }" class="text-blue-600 font-semibold hover:underline flex items-center justify-center">
+          <a href="${service.link || '#'}" class="text-blue-600 font-semibold hover:underline flex items-center justify-center">
             En savoir plus →
           </a>
         </div>
@@ -59,9 +56,8 @@ script.onload = () => {
   const whyChooseContainer = document.getElementById("why-choose-container");
   if (whyChooseContainer) {
     whyChooseContainer.innerHTML = "";
-    data.why_choose_us.forEach((item) => {
-      const isImage =
-        item.icon.includes("assets/") || item.icon.startsWith("http");
+    data.why_choose_us.forEach(item => {
+      const isImage = item.icon.includes("assets/") || item.icon.startsWith("http");
       const iconHTML = isImage
         ? `<img src="${item.icon}" alt="${item.title}" class="w-10 h-10">`
         : `<div class="text-4xl">${item.icon}</div>`;
@@ -79,12 +75,10 @@ script.onload = () => {
   }
 
   // TÉMOIGNAGES
-  const testimonialsContainer = document.getElementById(
-    "testimonials-container"
-  );
+  const testimonialsContainer = document.getElementById("testimonials-container");
   if (testimonialsContainer) {
     testimonialsContainer.innerHTML = "";
-    data.testimonials.forEach((client) => {
+    data.testimonials.forEach(client => {
       let stars = "★".repeat(client.rating) + "☆".repeat(5 - client.rating);
 
       testimonialsContainer.innerHTML += `

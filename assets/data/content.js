@@ -1,6 +1,6 @@
 const data = {
   "header": {
-    "logo": "Bkj",
+    "logo": "test 4H17",
     "cta": "Devis gratuit",
     "menu": [
       "Services",
@@ -10,7 +10,7 @@ const data = {
     ]
   },
   "footer": {
-    "company_name": "Bkj",
+    "company_name": "test 4H17",
     "company_desc": "Votre partenaire propreté professionnelll",
     "contact": {
       "phone": "01 23 45 67 89",
