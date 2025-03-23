@@ -1,6 +1,6 @@
 const data = {
   header: {
-    logo: "test 4H39",
+    logo: "test 4H",
     cta: "Devis gratuit",
     menu: ["Services", "Pourquoi nous", "Témoignages", "Contact"],
   },
