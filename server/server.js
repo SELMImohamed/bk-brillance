@@ -5,15 +5,16 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 
-// Routes
-const updateRoute = require("./routes/update");
+// 🔓 Rendre le dossier public
+app.use("/assets", express.static(path.join(__dirname, "assets")));
+
+// Route d'update
+const updateRoute = require("./routes/upload");
 app.use("/api/update", updateRoute);
 
-// Démarrage
 app.listen(PORT, () => {
-  console.log("✅ Serveur Express démarré sur le port " + PORT);
+  console.log("✅ Serveur en ligne sur le port", PORT);
 });

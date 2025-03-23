@@ -32,7 +32,7 @@ const setTextContent = (id, text) => {
 
 // Charger dynamiquement le fichier content.js
 const script = document.createElement("script");
-script.src = "server/assets/data/content.js";
+script.src = "https://bk-brillance-api.onrender.com/assets/data/content.js";
 script.onload = () => {
   console.log("✅ Données chargées :", data);
 

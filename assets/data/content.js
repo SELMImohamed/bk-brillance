@@ -25,7 +25,7 @@ const data = {
     "services": []
   },
   "hero": {
-    "title": "Votre propreté, notre engagement",
+    "title": "Votre propreté, notre engagementsss",
     "subtitle": "Nettoyage de qualité pour chantiers, cuisines et Airbnb",
     "cta": "Demandez un devis gratuit",
     "button_services": "Nos services",
