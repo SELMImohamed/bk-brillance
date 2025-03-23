@@ -12,7 +12,7 @@ app.use(express.json());
 app.use("/assets", express.static(path.join(__dirname, "assets")));
 
 // Route d'update
-const updateRoute = require("./routes/upload");
+const updateRoute = require("./routes/update");
 app.use("/api/update", updateRoute);
 
 app.listen(PORT, () => {
