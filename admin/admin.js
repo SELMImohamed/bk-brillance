@@ -1,164 +1,125 @@
-// admin/admin.js
-
 const script = document.createElement("script");
 script.src = "../assets/data/content.js";
 script.onload = () => {
-  console.log("✅ Données chargées depuis content.js :", data);
-
-  // Charger données générales
-  document.getElementById("company_name").value =
-    data.footer?.company_name || "";
-  document.getElementById("company_desc").value =
-    data.footer?.company_desc || "";
-
-  // Coordonnées
+  document.getElementById("company_name").value = data.footer?.company_name || "";
+  document.getElementById("company_desc").value = data.footer?.company_desc || "";
   document.getElementById("phone").value = data.footer?.contact?.phone || "";
   document.getElementById("email").value = data.footer?.contact?.email || "";
   document.getElementById("hours").value = data.footer?.contact?.hours || "";
+  document.getElementById("facebook").value = data.footer?.socials?.facebook || "";
+  document.getElementById("instagram").value = data.footer?.socials?.instagram || "";
+  document.getElementById("linkedin").value = data.footer?.socials?.linkedin || "";
   document.getElementById("hero_title").value = data.hero?.title || "";
   document.getElementById("hero_subtitle").value = data.hero?.subtitle || "";
   document.getElementById("hero_cta").value = data.hero?.cta || "";
   document.getElementById("hero_image").value = data.hero?.image || "";
-
-  // Réseaux
-  document.getElementById("facebook").value =
-    data.footer?.socials?.facebook || "";
-  document.getElementById("instagram").value =
-    data.footer?.socials?.instagram || "";
-  document.getElementById("linkedin").value =
-    data.footer?.socials?.linkedin || "";
-
-  // Services
-  if (data.services) {
-    services.push(...data.services);
-    renderServices();
-  }
-
-  // Témoignages
-  if (data.testimonials) {
-    testimonials.push(...data.testimonials);
-    renderTestimonials();
-  }
+  if (data.services) services.push(...data.services), renderServices();
+  if (data.testimonials) testimonials.push(...data.testimonials), renderTestimonials();
+  if (data.why_choose_us) whyChooseUs.push(...data.why_choose_us), renderWhyChooseUs();
 };
 document.body.appendChild(script);
 
-// SERVICES
-const services = [];
-const servicesContainer = document.getElementById("services-container");
-const addServiceBtn = document.getElementById("add-service");
+const services = [], testimonials = [], whyChooseUs = [];
 
-const renderServices = () => {
-  servicesContainer.innerHTML = "";
-  services.forEach((service, index) => {
-    servicesContainer.innerHTML += `
-      <div class="relative border p-4 rounded space-y-2 bg-gray-50">
-        <button onclick="removeService(${index})" class="absolute top-2 right-2 text-red-500 hover:text-red-700 text-xl">🗑</button>
-        <input type="text" placeholder="Titre" value="\${service.title}" onchange="updateService(\${index}, 'title', this.value)" class="w-full p-2 border rounded"/>
-        <textarea placeholder="Description" onchange="updateService(\${index}, 'description', this.value)" class="w-full p-2 border rounded">\${service.description}</textarea>
-        <input type="text" placeholder="Icône" value="\${service.icon}" onchange="updateService(\${index}, 'icon', this.value)" class="w-full p-2 border rounded"/>
-      </div>
-    `;
+function renderBlock(container, items, keys, removeFn, updateFn) {
+  container.innerHTML = "";
+  items.forEach((item, i) => {
+    const div = document.createElement("div");
+    div.className = "border p-4 rounded space-y-2 bg-gray-50 relative";
+
+    const remove = document.createElement("button");
+    remove.className = "absolute top-2 right-2 text-red-500 hover:text-red-700 text-xl";
+    remove.innerText = "🗑";
+    remove.onclick = () => { removeFn(i); };
+
+    div.append(remove);
+
+    keys.forEach(k => {
+      const label = document.createElement("label");
+      label.className = "block text-sm font-semibold";
+      label.innerText = k.charAt(0).toUpperCase() + k.slice(1);
+
+      const input = k === "description" || k === "comment"
+        ? document.createElement("textarea")
+        : document.createElement("input");
+
+      if (k === "rating") input.type = "number";
+      else input.type ||= "text";
+
+      input.value = item[k];
+      input.className = "w-full p-2 border rounded";
+      input.oninput = e => updateFn(i, k, e.target.value);
+
+      div.append(label, input);
+    });
+
+    container.append(div);
   });
-};
-window.updateService = (index, field, value) =>
-  (services[index][field] = value);
-window.removeService = (index) => {
-  services.splice(index, 1);
-  renderServices();
-};
-addServiceBtn.addEventListener("click", () => {
-  services.push({ title: "", description: "", icon: "" });
-  renderServices();
-});
+}
 
-// TÉMOIGNAGES
-const testimonials = [];
-const testimonialsContainer = document.getElementById("testimonials-container");
-const addTestimonialBtn = document.getElementById("add-testimonial");
+function renderServices() {
+  renderBlock(document.getElementById("services-container"), services, ["title", "description", "icon"], removeService, updateService);
+}
+function updateService(i, k, v) { services[i][k] = v; renderServices(); }
+function removeService(i) { services.splice(i, 1); renderServices(); }
+document.getElementById("add-service").onclick = () => { services.push({ title: "", description: "", icon: "" }); renderServices(); };
 
-const renderTestimonials = () => {
-  testimonialsContainer.innerHTML = "";
-  testimonials.forEach((t, index) => {
-    testimonialsContainer.innerHTML += `
-      <div class="relative border p-4 rounded space-y-2 bg-gray-50">
-        <button onclick="removeTestimonial(${index})" class="absolute top-2 right-2 text-red-500 hover:text-red-700 text-xl">🗑</button>
-        <input type="text" placeholder="Nom" value="\${t.name}" onchange="updateTestimonial(\${index}, 'name', this.value)" class="w-full p-2 border rounded" />
-        <textarea placeholder="Commentaire" onchange="updateTestimonial(\${index}, 'comment', this.value)" class="w-full p-2 border rounded">\${t.comment}</textarea>
-        <input type="number" min="1" max="5" placeholder="Note" value="\${t.rating}" onchange="updateTestimonial(\${index}, 'rating', this.value)" class="w-full p-2 border rounded" />
-        <input type="text" placeholder="Image" value="\${t.image}" onchange="updateTestimonial(\${index}, 'image', this.value)" class="w-full p-2 border rounded" />
-      </div>
-    `;
-  });
-};
-window.updateTestimonial = (index, field, value) =>
-  (testimonials[index][field] = value);
-window.removeTestimonial = (index) => {
-  testimonials.splice(index, 1);
-  renderTestimonials();
-};
-addTestimonialBtn.addEventListener("click", () => {
-  testimonials.push({ name: "", comment: "", rating: 5, image: "" });
-  renderTestimonials();
-});
+function renderTestimonials() {
+  renderBlock(document.getElementById("testimonials-container"), testimonials, ["name", "comment", "rating", "image"], removeTestimonial, updateTestimonial);
+}
+function updateTestimonial(i, k, v) { testimonials[i][k] = v; renderTestimonials(); }
+function removeTestimonial(i) { testimonials.splice(i, 1); renderTestimonials(); }
+document.getElementById("add-testimonial").onclick = () => { testimonials.push({ name: "", comment: "", rating: 5, image: "" }); renderTestimonials(); };
 
-// ENREGISTREMENT GLOBAL (unifié)
-document.querySelectorAll("form").forEach((form) => {
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+function renderWhyChooseUs() {
+  renderBlock(document.getElementById("why-choose-container"), whyChooseUs, ["title", "description", "icon"], removeWhy, updateWhy);
+}
+function updateWhy(i, k, v) { whyChooseUs[i][k] = v; renderWhyChooseUs(); }
+function removeWhy(i) { whyChooseUs.splice(i, 1); renderWhyChooseUs(); }
+document.getElementById("add-why").onclick = () => { whyChooseUs.push({ title: "", description: "", icon: "" }); renderWhyChooseUs(); };
 
-    const updatedData = {
-      header: {
-        logo: document.getElementById("company_name").value,
-        cta: "Devis gratuit",
-        menu: ["Services", "Pourquoi nous", "Témoignages", "Contact"],
+document.querySelectorAll("form").forEach(f => f.addEventListener("submit", async e => {
+  e.preventDefault();
+  const payload = {
+    header: {
+      logo: document.getElementById("company_name").value,
+      cta: "Devis gratuit",
+      menu: ["Services", "Pourquoi nous", "Témoignages", "Contact"]
+    },
+    footer: {
+      company_name: document.getElementById("company_name").value,
+      company_desc: document.getElementById("company_desc").value,
+      contact: {
+        phone: document.getElementById("phone").value,
+        email: document.getElementById("email").value,
+        hours: document.getElementById("hours").value
       },
-      footer: {
-        company_name: document.getElementById("company_name").value,
-        company_desc: document.getElementById("company_desc").value,
-        services: [],
-        contact: {
-          phone: document.getElementById("phone").value,
-          email: document.getElementById("email").value,
-          hours: document.getElementById("hours").value,
-        },
-        socials: {
-          facebook: document.getElementById("facebook").value,
-          instagram: document.getElementById("instagram").value,
-          linkedin: document.getElementById("linkedin").value,
-        },
+      socials: {
+        facebook: document.getElementById("facebook").value,
+        instagram: document.getElementById("instagram").value,
+        linkedin: document.getElementById("linkedin").value
       },
-      hero: {
-        title: document.getElementById("hero_title").value,
-        subtitle: document.getElementById("hero_subtitle").value,
-        cta: document.getElementById("hero_cta").value,
-        button_services: "Nos services",
-        image: document.getElementById("hero_image").value,
-      },
-      services: services,
-      testimonials: testimonials,
-      why_choose_us: [],
-    };
+      services: []
+    },
+    hero: {
+      title: document.getElementById("hero_title").value,
+      subtitle: document.getElementById("hero_subtitle").value,
+      cta: document.getElementById("hero_cta").value,
+      button_services: "Nos services",
+      image: document.getElementById("hero_image").value
+    },
+    services, testimonials, why_choose_us: whyChooseUs
+  };
 
-    console.log("📤 Envoi des données :", updatedData);
-
-    try {
-      const res = await fetch("http://localhost:3000/api/update", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updatedData),
-      });
-
-      if (res.ok) {
-        document
-          .querySelectorAll("p[id$='save-message']")
-          .forEach((el) => el.classList.remove("hidden"));
-        document.getElementById("hero-save-message").classList.remove("hidden");
-      } else {
-        alert("❌ Erreur d’enregistrement.");
-      }
-    } catch (err) {
-      console.error("❌ Erreur serveur :", err);
-      alert("❌ Erreur de connexion.");
-    }
-  });
-});
+  try {
+    const res = await fetch("http://localhost:3000/api/update", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) document.querySelectorAll("p[id$='save-message']").forEach(p => p.classList.remove("hidden"));
+  } catch (err) {
+    alert("❌ Erreur de connexion au serveur.");
+    console.error(err);
+  }
+}));
