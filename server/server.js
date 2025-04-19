@@ -9,7 +9,8 @@ app.use(cors());
 app.use(express.json());
 
 // 🔓 Rendre le dossier public
-app.use("/assets", express.static(path.join(__dirname, "../assets")));
+app.use("/assets", express.static(path.join(__dirname, "assets")));
+
 
 // Route d'update
 const updateRoute = require("./routes/update");
