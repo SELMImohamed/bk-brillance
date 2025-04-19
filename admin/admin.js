@@ -1,5 +1,5 @@
 const script = document.createElement("script");
-script.src = "../assets/data/content.js";
+script.src = "https://bk-brillance.onrender.com/assets/data/content.js";
 script.onload = () => {
   document.getElementById("company_name").value =
     data.footer?.company_name || "";
