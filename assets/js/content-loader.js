@@ -1,6 +1,8 @@
 async function fetchContentData() {
-    const res = await fetch(`https://bk-brillance.onrender.com/assets/data/content.js?ts=${Date.now()}`);
+    const res = await fetch("https://bk-brillance.onrender.com/assets/data/content.js?ts=" + Date.now());
     const text = await res.text();
+
+    // Convertir le contenu du fichier JS en objet JS
     const data = eval(text.replace("const data = ", "").replace(/;$/, ""));
     return data;
 }
