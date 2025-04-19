@@ -1,13 +1,14 @@
-async function fetchContentData() {
+document.addEventListener("DOMContentLoaded", async () => {
     const res = await fetch("https://bk-brillance.onrender.com/assets/data/content.js?ts=" + Date.now());
     const text = await res.text();
 
-    // Convertir le contenu du fichier JS en objet JS
-    const data = eval(text.replace("const data = ", "").replace(/;$/, ""));
-    return data;
-}
+    // 🔍 Affiche les données brutes dans la console pour vérification
+    console.log("📦 Données reçues :", text);
 
-fetchContentData().then((data) => {
+    // Transforme le texte JS en objet JS
+    const data = eval(text.replace("const data = ", "").replace(/;$/, ""));
+    console.log("✅ Données évaluées :", data);
+
     // HERO
     document.getElementById("hero-title").textContent = data.hero.title;
     document.getElementById("hero-subtitle").textContent = data.hero.subtitle;
@@ -67,6 +68,6 @@ fetchContentData().then((data) => {
         testimonialsContainer.appendChild(slide);
     });
 
-    // Année Footer
+    // FOOTER year
     document.getElementById("footer-year").textContent = new Date().getFullYear();
 });
