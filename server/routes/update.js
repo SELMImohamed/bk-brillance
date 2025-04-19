@@ -17,6 +17,7 @@ router.post("/", (req, res) => {
     }
 
     console.log("✅ Fichier content.js mis à jour avec succès.");
+    console.log("🔍 Le fichier va être écrit ici :", filePath);
     res.status(200).json({ message: "Contenu mis à jour." });
   });
 });
