@@ -173,9 +173,11 @@ document.querySelectorAll("form").forEach((f) =>
     };
 
     try {
-      const res = await fetch("https://bk-brillance.onrender.com/api/update", {
+      await fetch("https://bk-brillance.onrender.com/api/content", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify(payload),
       });
       if (res.ok)

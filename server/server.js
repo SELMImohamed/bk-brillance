@@ -13,6 +13,8 @@ app.use("/assets", express.static(path.join(__dirname, "assets")));
 
 
 // Route d'update
+const contentRoutes = require("./routes/content");
+app.use("/api/content", contentRoutes);
 const updateRoute = require("./routes/update");
 app.use("/api/update", updateRoute);
 

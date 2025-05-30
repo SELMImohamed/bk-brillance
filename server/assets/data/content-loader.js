@@ -1,7 +1,6 @@
 async function fetchContentData() {
-    const res = await fetch(`/assets/data/content.js?ts=${Date.now()}`);
-    const text = await res.text();
-    const data = eval(text.replace("const data = ", "").replace(/;$/, ""));
+    const res = await fetch("https://bk-brillance.onrender.com/api/content?ts=" + Date.now());
+    const data = await res.json();
     return data;
 }
 
