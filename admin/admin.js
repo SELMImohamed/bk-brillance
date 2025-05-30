@@ -172,21 +172,20 @@ document.querySelectorAll("form").forEach((f) =>
       why_choose_us: whyChooseUs,
     };
 
-    try {
-      await fetch("https://bk-brillance.onrender.com/api/content", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(payload),
-      });
-      if (res.ok)
-        document
-          .querySelectorAll("p[id$='save-message']")
-          .forEach((p) => p.classList.remove("hidden"));
-    } catch (err) {
-      alert("❌ Erreur de connexion au serveur.");
-      console.error(err);
+    const res = await fetch("https://bk-brillance.onrender.com/api/content", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    if (res.ok) {
+      document
+        .querySelectorAll("p[id$='save-message']")
+        .forEach((p) => p.classList.remove("hidden"));
+    } else {
+      alert("❌ Erreur lors de la sauvegarde !");
     }
+    
   })
 );
