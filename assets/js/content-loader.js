@@ -1,16 +1,9 @@
 document.addEventListener("DOMContentLoaded", async () => {
     try {
-        const res = await fetch("https://bk-brillance.onrender.com/assets/data/content.js?ts=" + Date.now());
-        const text = await res.text();
+        const res = await fetch("https://bk-brillance.onrender.com/api/content?ts=" + Date.now());
+        const data = await res.json();
 
-        console.log("📦 Données reçues :", text);
-
-        // ✅ Transforme en JSON en toute sécurité
-        const jsonString = text.match(/const data = (.+);/s)?.[1];
-        if (!jsonString) throw new Error("❌ Impossible de parser content.js");
-        const data = JSON.parse(jsonString);
-
-        console.log("✅ Données parsées :", data);
+        console.log("✅ Données chargées :", data);
 
         // HERO
         document.getElementById("hero-title").textContent = data.hero.title;
@@ -35,10 +28,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             const card = document.createElement("div");
             card.className = "bg-white rounded-lg shadow-lg p-6 text-left";
             card.innerHTML = `
-        <div class="text-4xl mb-4">${service.icon}</div>
-        <h3 class="text-xl font-bold text-gray-800 mb-2">${service.title}</h3>
-        <p class="text-gray-600">${service.description}</p>
-      `;
+          <div class="text-4xl mb-4">${service.icon}</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">${service.title}</h3>
+          <p class="text-gray-600">${service.description}</p>
+        `;
             servicesContainer.appendChild(card);
         });
 
@@ -49,10 +42,10 @@ document.addEventListener("DOMContentLoaded", async () => {
             const card = document.createElement("div");
             card.className = "bg-white rounded-lg shadow-lg p-6";
             card.innerHTML = `
-        <div class="text-4xl mb-4">${item.icon}</div>
-        <h3 class="text-xl font-bold text-gray-800 mb-2">${item.title}</h3>
-        <p class="text-gray-600">${item.description}</p>
-      `;
+          <div class="text-4xl mb-4">${item.icon}</div>
+          <h3 class="text-xl font-bold text-gray-800 mb-2">${item.title}</h3>
+          <p class="text-gray-600">${item.description}</p>
+        `;
             whyContainer.appendChild(card);
         });
 
@@ -63,11 +56,11 @@ document.addEventListener("DOMContentLoaded", async () => {
             const slide = document.createElement("div");
             slide.className = "swiper-slide bg-white rounded-lg shadow-lg p-6";
             slide.innerHTML = `
-        <img src="${testimonial.image}" alt="${testimonial.name}" class="w-16 h-16 rounded-full mx-auto mb-4" />
-        <h4 class="text-lg font-bold text-gray-800">${testimonial.name}</h4>
-        <p class="text-gray-600 mt-2 mb-2">${testimonial.comment}</p>
-        <p class="text-yellow-400">${"★".repeat(testimonial.rating)}${"☆".repeat(5 - testimonial.rating)}</p>
-      `;
+          <img src="${testimonial.image}" alt="${testimonial.name}" class="w-16 h-16 rounded-full mx-auto mb-4" />
+          <h4 class="text-lg font-bold text-gray-800">${testimonial.name}</h4>
+          <p class="text-gray-600 mt-2 mb-2">${testimonial.comment}</p>
+          <p class="text-yellow-400">${"★".repeat(testimonial.rating)}${"☆".repeat(5 - testimonial.rating)}</p>
+        `;
             testimonialsContainer.appendChild(slide);
         });
 
@@ -77,3 +70,4 @@ document.addEventListener("DOMContentLoaded", async () => {
         console.error("❌ Erreur lors du chargement du contenu :", error);
     }
 });
+  
