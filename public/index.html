@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BK Brillance - Accueil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <script src="https://kit.fontawesome.com/bb7034f9ae.js" crossorigin="anonymous"></script>
+  </head>
+
+  <body class="bg-white text-gray-800">
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full bg-white/30 backdrop-blur-md shadow-md z-50">
+      <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div id="header_logo" class="text-2xl font-bold text-blue-700">BK Brillance</div>
+        <nav class="hidden md:flex space-x-6 text-gray-700 text-lg" id="header_menu">
+          <a href="#services">Services</a>
+          <a href="#why-choose">Pourquoi nous</a>
+          <a href="#testimonials">Témoignages</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <a id="header_cta" href="devis.html" class="hidden md:inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-lg hover:bg-blue-700 transition">
+          Devis gratuit
+        </a>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-blue-50 to-green-50 py-32 px-6 mt-20">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 items-center gap-10">
+        <div>
+          <h1 id="hero_title" class="text-4xl md:text-5xl font-bold mb-4" href="devis.html" ></h1>
+          <p id="hero_subtitle" class="text-lg text-gray-700 mb-6"></p>
+          <div class="flex gap-4">
+            <a id="hero_cta" href="devis.html" class="bg-blue-600 text-white px-6 py-3 rounded-full hover:bg-blue-700 transition"></a>
+            <a href="#services" class="border border-blue-600 text-blue-600 px-6 py-3 rounded-full hover:bg-blue-100 transition">Nos services</a>
+          </div>
+        </div>
+        <div>
+          <img id="hero_image" src="assets/hero-image.jpg" alt="Nettoyage" class="rounded-xl shadow-md" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Ils nous ont fait confiance -->
+<!-- Ils nous ont fait confiance -->
+<section id="trusted-by" class="py-20 px-6 bg-blue-50">
+  <div class="max-w-7xl mx-auto text-center">
+    <h2 class="text-3xl font-bold mb-8">Ils nous ont fait confiance</h2>
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+      <img src="assets/Otacos_png.png" alt="O'Tacos" class="mx-auto h-16 object-contain" />
+      <img src="assets/ancien.webp" alt="Chez l’ancien" class="mx-auto h-16 object-contain" />
+      <img src="assets/haven.jpeg" alt="Haven" class="mx-auto h-16 object-contain" />
+      <img src="assets/Yankee.png" alt="Yankee’s" class="mx-auto h-16 object-contain" />
+    </div>
+  </div>
+</section>
+
+  
+
+    <!-- Services -->
+    <section id="services" class="py-20 px-6 bg-white">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Nos Services</h2>
+        <div id="services-container" class="grid md:grid-cols-3 gap-6 mt-10"></div>
+      </div>
+    </section>
+
+    <!-- Pourquoi nous choisir -->
+    <section id="why-choose" class="py-20 px-6 bg-blue-50">
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-3xl font-bold mb-4">Pourquoi nous choisir ?</h2>
+        <div id="why-choose-container" class="grid md:grid-cols-4 gap-6 mt-10"></div>
+      </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section id="testimonials" class="py-20 px-6 bg-white">
+        <div class="max-w-7xl mx-auto text-center">
+          <h2 class="text-3xl font-bold mb-4">Ce que disent nos clients</h2>
+          <div class="swiper">
+            <div id="testimonials-container" class="swiper-wrapper">
+              <!-- Chaque témoignage sera injecté ici par JS sans image -->
+            </div>
+            <div class="swiper-pagination mt-8"></div>
+          </div>
+        </div>
+      </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-10 px-6 mt-10">
+      <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 text-sm">
+        <div>
+          <h3 id="company_name" class="text-lg font-bold text-white mb-2">BK Brillance</h3>
+          <p id="company_desc"></p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2">Contact</h3>
+          <p id="phone"></p>
+          <p id="email"></p>
+          <p id="hours"></p>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-white mb-2">Suivez-nous</h3>
+          <a id="facebook" href="#" class="mr-4"><i class="fab fa-facebook"></i></a>
+          <a id="instagram" href="#" class="mr-4"><i class="fab fa-instagram"></i></a>
+          <a id="linkedin" href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+      </div>
+      <p class="text-center text-xs text-gray-500 mt-6">&copy; <span id="footer-year"></span> BK Brillance. Tous droits réservés.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+    <script type="module" src="/js/readContent.js"></script>
+    <script>
+      document.getElementById("footer-year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

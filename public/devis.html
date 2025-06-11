@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Demande de Devis | BK Brillance</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://kit.fontawesome.com/bb7034f9ae.js" crossorigin="anonymous"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="fixed top-0 left-0 w-full bg-white/30 backdrop-blur-md shadow-md z-50">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+      <div id="header_logo" class="text-2xl font-bold text-blue-700">BK Brillance</div>
+      <nav class="hidden md:flex space-x-6 text-gray-700 text-lg" id="header_menu">
+        <a href="index.html#services">Services</a>
+        <a href="index.html#why-choose">Pourquoi nous</a>
+        <a href="index.html#testimonials">Témoignages</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+      <a id="header_cta" href="devis.html" class="hidden md:inline-block bg-blue-600 text-white px-6 py-2 rounded-full text-lg hover:bg-blue-700 transition">
+        Devis gratuit
+      </a>
+    </div>
+  </header>
+
+  <!-- Contenu -->
+  <main class="max-w-4xl mx-auto px-6 py-32">
+    <h1 class="text-3xl font-bold mb-10 text-center">Demande de Devis</h1>
+
+    <!-- Type de service -->
+    <div class="mb-6">
+      <label class="block mb-2 font-semibold">Type de service :</label>
+      <select id="serviceType" class="w-full border border-gray-300 p-3 rounded">
+        <option value="hotte">Nettoyage de hottes</option>
+        <option value="chantier">Nettoyage de chantier</option>
+      </select>
+    </div>
+
+    <!-- Formulaire -->
+    <form id="devis-form" class="space-y-4 bg-white p-6 rounded shadow max-w-2xl mx-auto mt-10">
+      <h2 class="text-2xl font-bold mb-4">Demander un devis</h2>
+    
+      <!-- Infos client -->
+      <input name="nom" type="text" placeholder="Nom complet" required class="w-full border p-2 rounded" />
+      <input name="email" type="email" placeholder="Email" required class="w-full border p-2 rounded" />
+      <input name="telephone" type="tel" placeholder="Téléphone" required class="w-full border p-2 rounded" />
+      <input name="adresse" type="text" placeholder="Adresse" required class="w-full border p-2 rounded" />
+    
+      <!-- Choix service -->
+      <select name="service" id="service" required class="w-full border p-2 rounded">
+        <option value="">Choisir un type de devis</option>
+        <option value="Nettoyage de hottes">Nettoyage de hottes</option>
+        <option value="Nettoyage de chantier">Nettoyage de chantier</option>
+      </select>
+    
+      <!-- Section hottes -->
+      <div id="hottes-fields" class="space-y-2 hidden">
+        <input name="nb_hottes" type="number" placeholder="Nombre de hottes" class="w-full border p-2 rounded" />
+        <input name="frequence" type="text" placeholder="Fréquence (ex: mensuel)" class="w-full border p-2 rounded" />
+        <input name="surface" type="number" placeholder="Surface cuisine (m²)" class="w-full border p-2 rounded" />
+      </div>
+    
+      <!-- Section chantier -->
+      <div id="chantier-fields" class="space-y-2 hidden">
+        <input name="surface_chantier" type="number" placeholder="Surface chantier (m²)" class="w-full border p-2 rounded" />
+        <input name="type_chantier" type="text" placeholder="Type de chantier (ex: rénovation)" class="w-full border p-2 rounded" />
+        <input name="frequence_chantier" type="text" placeholder="Fréquence souhaitée" class="w-full border p-2 rounded" />
+      </div>
+    
+      <!-- Message -->
+      <textarea name="message" placeholder="Message ou précisions" rows="4" class="w-full border p-2 rounded"></textarea>
+    
+      <input type="hidden" name="date" id="current-date" />
+    
+      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Envoyer le devis</button>
+      <p id="form-message" class="text-green-600 hidden mt-2">✅ Devis envoyé avec succès !</p>
+    </form>
+    
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-300 py-10 px-6 mt-10">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <h3 class="text-lg font-bold text-white mb-2">BK Brillance</h3>
+        <p>Votre partenaire propreté professionnel</p>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-white mb-2">Contact</h3>
+        <p>📞 01 23 45 67 89</p>
+        <p>📧 contact@bkbrillance.fr</p>
+        <p>🕒 7j/7 de 8h à 20h</p>
+      </div>
+      <div>
+        <h3 class="text-lg font-bold text-white mb-2">Suivez-nous</h3>
+        <a href="#" class="mr-4"><i class="fab fa-facebook"></i></a>
+        <a href="#" class="mr-4"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+    <p class="text-center text-xs text-gray-500 mt-6">&copy; <span id="footer-year"></span> BK Brillance. Tous droits réservés.</p>
+  </footer>
+
+  <!-- Scripts -->
+ <!-- Tout le HTML au-dessus... -->
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+  emailjs.init("jjZXbR5Q2q3D9o8Go");
+
+  const serviceSelect = document.getElementById("service");
+  const hotteFields = document.getElementById("hottes-fields");
+  const chantierFields = document.getElementById("chantier-fields");
+
+  serviceSelect.addEventListener("change", () => {
+    hotteFields.classList.add("hidden");
+    chantierFields.classList.add("hidden");
+    if (serviceSelect.value === "Nettoyage de hottes") {
+      hotteFields.classList.remove("hidden");
+    } else if (serviceSelect.value === "Nettoyage de chantier") {
+      chantierFields.classList.remove("hidden");
+    }
+  });
+
+  document.getElementById("devis-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    document.getElementById("current-date").value = new Date().toLocaleString();
+
+    emailjs.sendForm("service_0i22p57", "template_5309r1j", this)
+      .then(() => {
+        document.getElementById("form-message").classList.remove("hidden");
+        this.reset();
+        hotteFields.classList.add("hidden");
+        chantierFields.classList.add("hidden");
+      })
+      .catch((error) => {
+        alert("Erreur : " + JSON.stringify(error));
+      });
+  });
+</script>
+</body>
+</html>
+

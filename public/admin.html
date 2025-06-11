@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas Admin | BK Brillance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .edit-disabled *[contenteditable],
+      .edit-disabled input,
+      .edit-disabled textarea,
+      .edit-disabled select,
+      .edit-disabled button:not(#toggleEdit),
+      .edit-disabled .card-block,
+      .edit-disabled .card-block * {
+        pointer-events: none !important;
+        background-color: #f3f4f6 !important;
+        color: #9ca3af !important;
+        opacity: 0.7;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <div class="flex justify-between items-center px-6 py-4 bg-white shadow">
+      <h1 class="text-2xl font-bold">Éditeur visuel - BK Brillance</h1>
+      <button id="toggleEdit" class="bg-blue-600 text-white px-4 py-2 rounded">
+        Activer l'édition
+      </button>
+    </div>
+
+    <div id="canvas-content" class="p-6 space-y-12">
+      <!-- Hero -->
+      <section class="grid md:grid-cols-2 gap-8 items-center card-block">
+        <div>
+          <h2 data-path="hero.title" contenteditable="true" class="text-4xl font-extrabold"></h2>
+          <p data-path="hero.subtitle" contenteditable="true" class="mt-2 text-lg"></p>
+          <a data-path="hero.cta" contenteditable="true" href="#" class="inline-block mt-4 bg-blue-600 text-white px-4 py-2 rounded-full"></a>
+        </div>
+        <div>
+          <img id="hero-image-preview" src="" class="w-full rounded-xl shadow-md" />
+          <input id="hero-image-input" type="text" placeholder="URL image hero" class="mt-2 w-full border p-2 rounded" />
+        </div>
+      </section>
+
+      <!-- Menu header -->
+      <section class="card-block">
+        <h2 class="text-xl font-semibold mb-2">🧭 Menu Header</h2>
+        <div id="header-menu-edit" class="space-y-2"></div>
+      </section>
+
+      <!-- Services -->
+      <section class="card-block">
+        <h2 class="text-xl font-semibold mb-2">🧱 Services</h2>
+        <div id="services-section" class="grid md:grid-cols-3 gap-6"></div>
+      </section>
+
+      <!-- Pourquoi nous -->
+      <section class="card-block">
+        <h2 class="text-xl font-semibold mb-2">✨ Pourquoi nous choisir</h2>
+        <div id="why-section" class="grid md:grid-cols-4 gap-6"></div>
+      </section>
+
+      <!-- Témoignages -->
+      <section class="card-block">
+        <h2 class="text-xl font-semibold mb-2">🗣️ Témoignages</h2>
+        <div id="testimonials-section" class="grid md:grid-cols-3 gap-6"></div>
+      </section>
+
+      <!-- Footer -->
+      <section class="grid md:grid-cols-3 gap-6 card-block">
+        <div>
+          <h2 contenteditable="true" data-path="footer.company_name" class="text-lg font-bold"></h2>
+          <p contenteditable="true" data-path="footer.company_desc" class="text-sm mt-1"></p>
+        </div>
+        <div>
+          <input data-path="footer.contact.phone" class="w-full p-2 border rounded mb-2" placeholder="Téléphone" />
+          <input data-path="footer.contact.email" class="w-full p-2 border rounded mb-2" placeholder="Email" />
+          <input data-path="footer.contact.hours" class="w-full p-2 border rounded" placeholder="Horaires" />
+        </div>
+        <div>
+          <input data-path="footer.socials.facebook" class="w-full p-2 border rounded mb-2" placeholder="Facebook" />
+          <input data-path="footer.socials.instagram" class="w-full p-2 border rounded mb-2" placeholder="Instagram" />
+          <input data-path="footer.socials.linkedin" class="w-full p-2 border rounded" placeholder="LinkedIn" />
+        </div>
+      </section>
+    </div>
+
+    <script>
+      document.getElementById("toggleEdit").addEventListener("click", () => {
+        const container = document.getElementById("canvas-content");
+        container.classList.toggle("edit-disabled");
+      });
+    </script>
+    <script type="module" src="/js/canvas-editor.js"></script>
+  </body>
+</html>
